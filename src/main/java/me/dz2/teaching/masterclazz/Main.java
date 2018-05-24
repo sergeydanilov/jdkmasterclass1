@@ -7,12 +7,25 @@ import java.awt.*;
 
 public class Main {
 
-    MyPanel panel;
+    static JPanel panel;
     int speed = 1;
 
     public static void main(String[] args) {
         System.out.println("hi");
 
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+//                runGUI();
+                runGUISimple();
+
+                runAnimation();
+            }
+        });
+
+
+    }
+
+    private static void runGUI() {
         JFrame window = new JFrame();
 
         window.setSize(500, 768);
@@ -21,25 +34,29 @@ public class Main {
 
         window.setTitle("Hello world");
 
-        MyPanel panel = new MyPanel();
-//        window.add(panel);
-        window.getContentPane().add(panel);
-        //window.pack();
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        panel = new MyPanel();
+        window.setContentPane(panel);
+    }
 
+    private static void runGUISimple() {
+        JFrame window = new JFrame();
 
+        window.setSize(500, 768);
+        window.setLocation(100,0);
+        window.setVisible(true);
+
+        window.setTitle("Hello world");
 
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        panel = new JPanel();
+        panel.setBackground(Color.BLACK);
+        window.setContentPane(panel);
+    }
 
-//        Thread background = new Thread(new BackgroundTask(0, 1, panel));
-        //background.setDaemon(true);
-//        background.start();
-
-
+    private static void runAnimation() {
         BackgroundTask task = new BackgroundTask(0, 1, panel);
 
         new Thread(task).start();
-
-//        EventQueue.invokeLater(task);
-
     }
 }

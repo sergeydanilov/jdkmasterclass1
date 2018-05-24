@@ -1,5 +1,7 @@
 package me.dz2.teaching.masterclazz;
 
+import javax.swing.*;
+
 /**
  *
  */
@@ -8,9 +10,9 @@ public class BackgroundTask implements Runnable {
     int i = 0;
     int x = 0;
     int speed;
-    MyPanel panel;
+    JPanel panel;
 
-    public BackgroundTask(int x, int speed, MyPanel panel) {
+    public BackgroundTask(int x, int speed, JPanel panel) {
         this.x = x;
         this.speed = speed;
         this.panel = panel;
@@ -18,15 +20,17 @@ public class BackgroundTask implements Runnable {
 
     @Override
     public void run() {
-        while (true) {
-            try {
-                Thread.sleep(100);
-                panel.invalidate();
-                panel.repaint();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+        if (panel instanceof MyPanel) {
+            while (true) {
+                try {
+                    Thread.sleep(100);
+                    panel.invalidate();
+                    panel.repaint();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                i++;
             }
-            i++;
         }
     }
 }
