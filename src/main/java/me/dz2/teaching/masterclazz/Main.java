@@ -16,7 +16,7 @@ public class Main {
         JFrame window = new JFrame();
 
         window.setSize(500, 768);
-        window.setLocation(0,0);
+        window.setLocation(100,0);
         window.setVisible(true);
 
         window.setTitle("Hello world");
