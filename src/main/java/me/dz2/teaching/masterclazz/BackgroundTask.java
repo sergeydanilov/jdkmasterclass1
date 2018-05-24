@@ -18,13 +18,14 @@ public class BackgroundTask implements Runnable {
 
     @Override
     public void run() {
-        while (i < 1000) {
-            x = x + speed;
-            panel.setX(x);
-
-            panel.invalidate();
-            panel.repaint();
-
+        while (i < 100) {
+            try {
+                Thread.sleep(100);
+                panel.invalidate();
+                panel.repaint();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             i++;
         }
     }

@@ -35,6 +35,8 @@ public class Main {
 
         BackgroundTask task = new BackgroundTask(0, 1, panel);
 
+        new Thread(task).start();
+
 //        EventQueue.invokeLater(task);
 
     }

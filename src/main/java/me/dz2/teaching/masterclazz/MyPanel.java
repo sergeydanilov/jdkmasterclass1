@@ -19,7 +19,7 @@ public class MyPanel extends JPanel {
 
 
     @Override
-    protected void paintComponent(Graphics canvas) {
+    public void paint(Graphics canvas) {
         super.paintComponent(canvas);
 
 //        canvas.fillRect(100,50, 400,200);
@@ -29,6 +29,11 @@ public class MyPanel extends JPanel {
         canvas.setColor(cicleColor);
         canvas.fillOval(x, y, d, d);
 
+        x = x + speed;
+        System.out.println("current x = " + x);
+//        if (x > getWidth() - d) {
+//            speed = -1;
+//        }
     }
 
     @Override
