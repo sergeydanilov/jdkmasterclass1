@@ -3,23 +3,12 @@ package me.dz2.teaching.masterclazz;
 import com.sun.xml.internal.bind.v2.model.annotation.RuntimeAnnotationReader;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class Main {
 
     MyPanel panel;
-
-    class Background implements Runnable {
-
-        int i = 0;
-
-        @Override
-        public void run() {
-            while (i< 1000) {
-//                panel.set
-                i++;
-            }
-        }
-    }
+    int speed = 1;
 
     public static void main(String[] args) {
         System.out.println("hi");
@@ -38,6 +27,15 @@ public class Main {
 
 
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+//        Thread background = new Thread(new BackgroundTask(0, 1, panel));
+        //background.setDaemon(true);
+//        background.start();
+
+
+        BackgroundTask task = new BackgroundTask(0, 1, panel);
+
+//        EventQueue.invokeLater(task);
 
     }
 }
