@@ -1,7 +1,5 @@
 package me.dz2.teaching.masterclazz;
 
-import com.sun.xml.internal.bind.v2.model.annotation.RuntimeAnnotationReader;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -15,8 +13,8 @@ public class Main {
 
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-//                runGUI();
-                runGUISimple();
+                runGUI();
+//                runGUISimple();
 
                 runAnimation();
             }
@@ -36,6 +34,7 @@ public class Main {
 
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         panel = new MyPanel();
+        panel.setBackground(Color.CYAN);
         window.setContentPane(panel);
     }
 
