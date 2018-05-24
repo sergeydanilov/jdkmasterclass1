@@ -18,7 +18,7 @@ public class BackgroundTask implements Runnable {
 
     @Override
     public void run() {
-        while (i < 100) {
+        while (true) {
             try {
                 Thread.sleep(100);
                 panel.invalidate();

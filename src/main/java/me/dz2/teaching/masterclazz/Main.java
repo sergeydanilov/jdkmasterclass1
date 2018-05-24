@@ -15,14 +15,16 @@ public class Main {
 
         JFrame window = new JFrame();
 
-        window.setSize(1024, 768);
+        window.setSize(500, 768);
         window.setLocation(0,0);
         window.setVisible(true);
 
         window.setTitle("Hello world");
 
         MyPanel panel = new MyPanel();
-        window.add(panel);
+//        window.add(panel);
+        window.getContentPane().add(panel);
+        //window.pack();
 
 
 

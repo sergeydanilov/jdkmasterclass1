@@ -9,10 +9,10 @@ import java.awt.*;
 public class MyPanel extends JPanel {
 
     int d = 30;
-    Color bgColor = new Color(0,0,255);
-    Color cicleColor = new Color(255,0,0);
+    Color bgColor = new Color(0, 0, 255);
+    Color cicleColor = new Color(255, 0, 0);
 
-    int x =0;
+    int x = 0;
     int y = 100;
 
     int speed = 1;
@@ -20,7 +20,7 @@ public class MyPanel extends JPanel {
 
     @Override
     public void paint(Graphics canvas) {
-        super.paintComponent(canvas);
+        super.paint(canvas);
 
 //        canvas.fillRect(100,50, 400,200);
         canvas.setColor(bgColor);
@@ -30,10 +30,13 @@ public class MyPanel extends JPanel {
         canvas.fillOval(x, y, d, d);
 
         x = x + speed;
-        System.out.println("current x = " + x);
-//        if (x > getWidth() - d) {
-//            speed = -1;
-//        }
+        if (x > getWidth() - d) {
+            speed = -1;
+        }
+        if (x < d && speed < 0) {
+            speed = 1;
+        }
+        System.out.println("current x = " + x + " getWidth()=" + getWidth());
     }
 
     @Override
